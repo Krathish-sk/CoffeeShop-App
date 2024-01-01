@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
-import { Text } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import {
   useFonts,
   Poppins_900Black,
@@ -18,6 +18,7 @@ import {
 import { DetailsScreen, PaymentScreen } from "./screens";
 import TabNavigator from "./navigators/TabNavigator";
 import { store } from "./features/store";
+import { COLORS, FONTFAMILY, FONTSIZE } from "./theme/theme";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,16 +37,12 @@ export default function App() {
 
   if (!fontsLoaded) {
     return (
-      <Text
+      <View
         style={{
           flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
+          backgroundColor: COLORS.primaryBlackHex,
         }}
-      >
-        Loading ...
-      </Text>
+      ></View>
     );
   }
 
